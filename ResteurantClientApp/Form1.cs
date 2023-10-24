@@ -25,6 +25,7 @@ namespace ResteurantClientApp
             createRestContactNumberMTB.Visible = true;
             createRestDoneBTN.Visible = true;
             createRestCancelBTN.Visible = true;
+            //ActiveForm.Size.Height = 400;
         }
 
         private void GetResteurantsBTN_Click(object sender, EventArgs e)

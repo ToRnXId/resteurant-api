@@ -242,6 +242,9 @@
             this.Controls.Add(this.getResteurantsBTN);
             this.Controls.Add(this.createResteruantBTN);
             this.Name = "Form1";
+            this.Opacity = 0.9D;
+            this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Resteurant Client App";
             this.ResumeLayout(false);
             this.PerformLayout();
