@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace ResteurantApiAspNetCore2.Controllers.Common
 {
     [ApiController] //atrybuty
-    [Route("api/[controller]")]
+    [Route("[controller]")]
 
     public class ApiController : ControllerBase
     {

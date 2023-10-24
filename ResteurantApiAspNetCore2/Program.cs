@@ -12,10 +12,10 @@ builder.Services.AddControllers();
 //builder.Services.AddSwaggerGen();
 builder.Services.AddSwaggerConfiguration();
 
-//builder.Services.AddScoped<IResteurantRepository, ResteurantRepository>();  //wstrzykiwanie za³e¿noœci  - dependenci injection
+//builder.Services.AddScoped<IResteurantRepository, ResteurantRepository>();  //wstrzykiwanie zaï¿½eï¿½noï¿½ci  - dependenci injection
 //AddScoped - na czas odczytywania httm
-//AddSingleton - raz dodane na cykl ¿ycia aplikacji
-//AddTransient - za ka¿dym razem kiedy robimy zapytanie
+//AddSingleton - raz dodane na cykl ï¿½ycia aplikacji
+//AddTransient - za kaï¿½dym razem kiedy robimy zapytanie
 builder.Services.AddRepositories();
 builder.Services.AddServices();
 
@@ -35,7 +35,3 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
-
-//Duck duck= new Duck();
-//IFlyable flyable = new IFlyable();
-//IFlyable duck2 = new Duck();
