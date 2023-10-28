@@ -1,11 +1,17 @@
+using ResteurantClientApp.Containers;
+using ResteurantClientApp.Services.Interfaces;
 using RestSharp;
+using System.ComponentModel;
 
 namespace ResteurantClientApp
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
-        public Form1()
+        private readonly MainFormServicesContainer _container;
+
+        public MainForm(MainFormServicesContainer container)
         {
+            _container = container;
             InitializeComponent();
         }
 
@@ -32,7 +38,7 @@ namespace ResteurantClientApp
         {
             try 
             {
-                var client = new RestClient("https://localhost:7013");
+                var client = _container.RestClientService.GetClient();
                 var request = new RestRequest("/Resteurant", Method.Get);
                 var response = client.Execute(request);
 
