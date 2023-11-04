@@ -1,7 +1,5 @@
 using ResteurantClientApp.Containers;
-using ResteurantClientApp.Services.Interfaces;
 using RestSharp;
-using System.ComponentModel;
 
 namespace ResteurantClientApp
 {
@@ -31,29 +29,27 @@ namespace ResteurantClientApp
             createRestContactNumberMTB.Visible = true;
             createRestDoneBTN.Visible = true;
             createRestCancelBTN.Visible = true;
-            //ActiveForm.Size.Height = 400;
         }
 
-        private void GetResteurantsBTN_Click(object sender, EventArgs e)
+        private async void GetResteurantsBTN_Click(object sender, EventArgs e)
         {
             try 
             {
-                var client = _container.RestClientService.GetClient();
-                var request = new RestRequest("/Resteurant", Method.Get);
-                var response = client.Execute(request);
-
-                if (response.IsSuccessful)
+                var resteurants = await _container.ResteurantService.GetAllResteraunts();
+                foreach (var resteurant in resteurants)
                 {
-                    responseLBL.Text = response?.Content?.ToString();
-                }
-                else
-                {
-                    responseLBL.Text = response.ErrorMessage;
+                    responseLBL.Text = $"Name: {resteurant.Name}\n" +
+                        $"Description: {resteurant.Description}\n" +
+                        $"Category: {resteurant.Category}\n" +
+                        $"Contact Number: {resteurant.ContactNumber}\n" +
+                        $"Contact Email: {resteurant.ContactEmail}\n" +
+                        $"Delivery: {resteurant.HasDelivery}\n" +
+                        $"###############################################";
                 }
             }
-            catch (Exception ex)
+            catch (Exception exc)
             {
-                responseLBL.Text = ex.Message;
+                responseLBL.Text = $"{exc.Message}, {exc.InnerException}";
             }
         }
 

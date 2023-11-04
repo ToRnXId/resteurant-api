@@ -1,6 +1,6 @@
-﻿namespace ResteurantApiAspNetCore2.Entities
+﻿namespace ResteurantClientApp.Contracts
 {
-    public sealed class Resteurant
+    public class Resteurant
     {
         public Guid Id { get; set; }
         public string? Name { get; set; }
@@ -11,4 +11,3 @@
         public string? ContactNumber { get; set; }
     }
 }
-    

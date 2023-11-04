@@ -1,7 +1,6 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using ResteurantClientApp.Containers;
-using ResteurantClientApp.Services.Interfaces;
 
 namespace ResteurantClientApp
 {
@@ -15,12 +14,6 @@ namespace ResteurantClientApp
             using IHost host = builder.Build();
             using IServiceScope serviceScope = host.Services.CreateScope();
             IServiceProvider provider = serviceScope.ServiceProvider;
-            //provider.GetRequiredService<>;
-
-            //var serviceProvider = new ServiceCollection()
-            //    .AddServices()
-            //    .BuildServiceProvider();
-            //serviceProvider.CreateScope();
 
             ApplicationConfiguration.Initialize();
             Application.Run(new MainForm(provider.GetRequiredService<MainFormServicesContainer>()));

@@ -1,7 +1,8 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using ResteurantClientApp.Containers;
-using ResteurantClientApp.Services;
-using ResteurantClientApp.Services.Interfaces;
+using ResteurantClientApp.Services.Common;
+using ResteurantClientApp.Services.Common.Interfaces;
+using ResteurantClientApp.Services.Resteurant;
 
 namespace ResteurantClientApp
 {
@@ -9,8 +10,9 @@ namespace ResteurantClientApp
     {
         public static IServiceCollection AddMainFormServiceContainer(this IServiceCollection services)
         {
-            services.AddScoped<MainFormServicesContainer>();
-            services.AddScoped<IRestClientServices, RestClientServices>();
+            services.AddSingleton<MainFormServicesContainer>();
+            services.AddScoped<IRestClientService, RestClientService>();
+            services.AddScoped<IResteurantService, ResteurantService>();
             return services;
         }
     }
